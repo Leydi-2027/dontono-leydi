@@ -1,9 +1,12 @@
+<?php session_start(); ?> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ferreteria Don Toño</title>
+
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         <link rel="stylesheet" href="style/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
@@ -38,12 +41,40 @@
                 </li>
             </ul>
             </div>
-            <div class="ms-auto">
-                <a class="btn btn-outline-primary" href="registro.html" role="button">Login</a>
-                <a class="btn btn-primary" href="login.html" role="button">Registrarse</a>
-            </div>
-        </div>
-</nav>
+    <div class="ms-auto">
+
+    <?php if (isset($_SESSION['usuario_id'])): ?> 
+            <div class="dropdown"> 
+                <a class="btn btn-outline-secondary dropdown-toggle d-flex align
+        items-center" href="#" role="button" data-bs-toggle="dropdown" aria
+        expanded="false"> 
+
+    <i class="fa-solid fa-circle-user me-2"></i> 
+    <?php echo $_SESSION['nombre']; ?> 
+                </a> 
+    <ul class="dropdown-menu dropdown-menu-end"> 
+        <li> 
+            <a class="dropdown-item" href="profile.php"> 
+                <i class="fa-solid fa-id-card me-2"></i> Perfil 
+            </a> 
+        </li> 
+        <li><hr class="dropdown-divider"></li> 
+        <li> 
+
+            <a class="dropdown-item text-danger" href="php/logout.php"> 
+                <i class="fa-solid fa-right-from-bracket me-2"></i> 
+  Cerrar sesión               
+            </a> 
+        </li> 
+    </ul> 
+</div> 
+
+<?php else: ?> 
+    <a class="btn btn-outline-primary me-2" href="login.html">Login</a> 
+    <a class="btn btn-primary" href="register.html">Registrarse</a> 
+<?php endif; ?> 
+</div>
+    </nav>
  
 <div id="carouselExampleFade" class="carousel slide carousel-fade">
         <div class="carousel-indicators">
@@ -53,21 +84,21 @@
     </div>
     <div class="carousel-inner">
     <div class="carousel-item active">
-            <img src= "img/opgg1.jpg" class="d-block w-100" alt="...">
+            <img src="img/Abr-7-indicadores-de-rentabilidad-para-hacer-crecer-una-ferreteria.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Second slide label</h5>
                 <p>Some representative placeholder content for the second slide.</p>
             </div>
         </div>
         <div class="carousel-item">
-            <img src="img/jdjksk.jpg" class="d-block w-100" alt="...">
+            <img src="img/ferreteria.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Second slide label</h5>
                 <p>Some representative placeholder content for the second slide.</p>
             </div>
         </div>
         <div class="carousel-item">
-            <img src="img/kofdp.jpg" class="d-block w-100" alt="...">
+            <img src="img/tlapalerias.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Second slide label</h5>
                 <p>Some representative placeholder content for the second slide.</p>
